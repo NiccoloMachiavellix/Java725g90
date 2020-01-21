@@ -14,40 +14,33 @@ public static int calculate(String personNumber) {
     int temp2 = 0;
     int temp = 0;
     int trezx = 0;
-	
-	 
-    for( int i = 0; i < personNumber.length() ; i++)
-		
-	{
-    	 	
+
+	for( int i = 1; i < personNumber.length() ; i+=2){
+    	
 	char charAtPosition = personNumber.charAt(i);
 	int varde = Integer.parseInt("" + charAtPosition);
-if ((i % 2 != 0)) 
-{
-	varde = varde * 1;
+
+varde = varde * 1;
 temp = varde + temp;
-       }
+       
 
 tre = temp;
-   			}
+	}
 
-for (int i = 0; i < personNumber.length();i++){
+for (int i = 0; i < personNumber.length();i+=2){
 char charAtPosition = personNumber.charAt(i);
 int v2 = Integer.parseInt("" + charAtPosition);
-	if ((i % 2 == 0)) {
+	
 	v2 = v2 * 2;
 	if (v2 >= 10 ) {
 		String number = String.valueOf(v2);
 		for (int ix = 0; ix <= 1; ix++) {
 	   v2 = Character.digit(number.charAt(ix), 10);
-	     temp2= v2 + temp2;
-
+	     temp2= v2 + temp2;	
 		}
-	}
-	else {
+	} else {
 		temp2 = v2 + temp2;
 		}
-    }
 	trezx = tre+temp2;
 	System.out.println(trezx);
 }
@@ -58,7 +51,7 @@ public static boolean isValidSSNR(String personNumber, int trezx) {
 	if ((trezx % 10 == 0) && (isLengthValid(personNumber)))	
 	return true;
 	else
-		return false;
+	return false;
 }
 
     public static void main(String[] args) {
@@ -68,26 +61,19 @@ public static boolean isValidSSNR(String personNumber, int trezx) {
    
 	
     if (isLengthValid(personNumber)) {
-        System.out.println("Giltig längd på personnumret.");
-} 
-else
-{
-    System.out.println("Ej en gilitg längd.");
+        System.out.println("Giltig lÃ¤ngd pÃ¥ personnumret.");
+} else {
+    System.out.println("Ej en gilitg lÃ¤ngd.");
     }
   
     
-    
-    
-
 sum = calculate(personNumber);  
-    /////////////////////////////////////////////////////////////////	
-
+    
 System.out.println(personNumber);   
 if (isValidSSNR(personNumber, sum)) {
+	
         System.out.println("Giltigt nummer.");
-    } 
-else {
-        System.out.println("Ej ett giltigt nummer.");
-    }
+    } else {
+        System.out.println("Ej ett giltigt nummer.");}
 }  
 }
